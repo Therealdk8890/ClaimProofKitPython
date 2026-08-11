@@ -1,0 +1,51 @@
+{
+  "algorithm" : "sha256( \"cpk:v1:report:\" + concat( claimFingerprint + ':' + status + '|' per verdict in order ) )",
+  "cases" : [
+    {
+      "description" : "Empty report",
+      "fingerprint" : "fd3d566cd022044a0cbb092fa4bcc40e766ab99dc7541828f05606451c12a3a8",
+      "verdicts" : [
+
+      ]
+    },
+    {
+      "description" : "Single supported claim",
+      "fingerprint" : "6e3d1fbe605503549393a962aa2938c3339620968d2f2564ab972d69f7c9f35e",
+      "verdicts" : [
+        {
+          "claimText" : "The court granted the motion.",
+          "status" : "directlySupported"
+        }
+      ]
+    },
+    {
+      "description" : "Two claims in original order",
+      "fingerprint" : "d73ba74e905ce697f94aacb26936a01bd896637754112c1c8e26736022197071",
+      "verdicts" : [
+        {
+          "claimText" : "The court granted the motion.",
+          "status" : "directlySupported"
+        },
+        {
+          "claimText" : "The tenant paid rent in March.",
+          "status" : "contradicted"
+        }
+      ]
+    },
+    {
+      "description" : "Same two claims reversed (order participates in identity)",
+      "fingerprint" : "c9bff33a00b9aba4a217d6b53938e5ec52eecd1d1da2b982dc9b718566000140",
+      "verdicts" : [
+        {
+          "claimText" : "The tenant paid rent in March.",
+          "status" : "contradicted"
+        },
+        {
+          "claimText" : "The court granted the motion.",
+          "status" : "directlySupported"
+        }
+      ]
+    }
+  ],
+  "specVersion" : "1.0"
+}

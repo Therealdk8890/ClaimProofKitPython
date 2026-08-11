@@ -1,0 +1,36 @@
+{
+  "algorithm" : "FNV-1a 64-bit over lowercased UTF-8 claim text, unpadded lowercase hex",
+  "cases" : [
+    {
+      "description" : "Simple factual claim",
+      "fingerprint" : "7d762a0da23e14f3",
+      "text" : "The court granted the motion."
+    },
+    {
+      "description" : "Case-folded twin of the simple claim (same fingerprint by design)",
+      "fingerprint" : "7d762a0da23e14f3",
+      "text" : "THE COURT GRANTED THE MOTION."
+    },
+    {
+      "description" : "Single-character difference from the simple claim",
+      "fingerprint" : "6d60d02aaf13048e",
+      "text" : "The court granted the motions."
+    },
+    {
+      "description" : "Unicode and emoji content",
+      "fingerprint" : "aa307cf8c86113c6",
+      "text" : "Ünïcode – emoji 🧾 claim"
+    },
+    {
+      "description" : "Minimal one-letter claim",
+      "fingerprint" : "af63dc4c8601ec8c",
+      "text" : "a"
+    },
+    {
+      "description" : "Fingerprint shorter than 16 hex digits (locks unpadded rendering)",
+      "fingerprint" : "8648614037622e2",
+      "text" : "The tenant paid rent in June."
+    }
+  ],
+  "specVersion" : "1.0"
+}

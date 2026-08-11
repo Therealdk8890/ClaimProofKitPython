@@ -1,0 +1,38 @@
+{
+  "algorithm" : "sha256 of frozen newline-delimited key:value listing (see PROOF_SPEC_V1.md §4)",
+  "cases" : [
+    {
+      "ambiguousThreshold" : 0.4,
+      "contradictionThreshold" : 0.55,
+      "description" : "Default policy",
+      "fingerprint" : "2f7f3374f9569df303c94cf3a050898e3608269a2e8c8d3aa00d56161642f3e0",
+      "maximumEvidenceMatches" : 3,
+      "supportedThreshold" : 0.8
+    },
+    {
+      "ambiguousThreshold" : 0.4,
+      "contradictionThreshold" : 0.55,
+      "description" : "Raised support threshold",
+      "fingerprint" : "5b01a467c93e6fa46cc25b4530d1ae56a9bd84087d5cbad055085f9797f1d90f",
+      "maximumEvidenceMatches" : 3,
+      "supportedThreshold" : 0.9
+    },
+    {
+      "ambiguousThreshold" : 0.4,
+      "contradictionThreshold" : 0.55,
+      "description" : "Wider evidence window",
+      "fingerprint" : "c3909fdd0b5fa65e2fd1f8136766347b3636475339566e47a6d788f8d3186c24",
+      "maximumEvidenceMatches" : 5,
+      "supportedThreshold" : 0.8
+    },
+    {
+      "ambiguousThreshold" : 0.35,
+      "contradictionThreshold" : 0.5,
+      "description" : "Fully custom policy",
+      "fingerprint" : "15c1e861d61f397b0fdb06af37264349e0f7f3ed62c9a3420cdc38c07bb02b11",
+      "maximumEvidenceMatches" : 2,
+      "supportedThreshold" : 0.72
+    }
+  ],
+  "specVersion" : "1.0"
+}

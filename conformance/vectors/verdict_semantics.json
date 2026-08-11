@@ -1,0 +1,118 @@
+{
+  "cases" : [
+    {
+      "claimText" : "A response must be filed within 14 days after service of the motion.",
+      "claimType" : "legalRule",
+      "description" : "Directly grounded legal rule",
+      "evidence" : [
+        {
+          "id" : "rule-5",
+          "source" : "Local Rule 5",
+          "sourceType" : "courtRule",
+          "text" : "A response must be filed within 14 days after service of the motion."
+        }
+      ],
+      "expectedStatus" : "directlySupported"
+    },
+    {
+      "claimText" : "The court did not deny the request for an extension.",
+      "claimType" : "factual",
+      "description" : "Polarity reversal is contradicted",
+      "evidence" : [
+        {
+          "id" : "order-1",
+          "source" : "Scheduling Order",
+          "sourceType" : "courtRecord",
+          "text" : "The court denied the request for an extension."
+        }
+      ],
+      "expectedStatus" : "contradicted"
+    },
+    {
+      "claimText" : "The plaintiff filed a second amended complaint.",
+      "claimType" : "factual",
+      "description" : "Invented fact is unsupported",
+      "evidence" : [
+        {
+          "id" : "order-1",
+          "source" : "Scheduling Order",
+          "sourceType" : "courtRecord",
+          "text" : "The court denied the request for an extension."
+        }
+      ],
+      "expectedStatus" : "unsupported"
+    },
+    {
+      "claimText" : "The landlord returned the deposit after inspection.",
+      "claimType" : "factual",
+      "description" : "Related but incomplete evidence is partial support",
+      "evidence" : [
+        {
+          "id" : "letter-2",
+          "source" : "Move-out Letter",
+          "sourceType" : "evidence",
+          "text" : "The landlord completed the inspection and returned the keys."
+        }
+      ],
+      "expectedStatus" : "partiallySupported"
+    },
+    {
+      "claimText" : "We recommend filing a motion to compel discovery.",
+      "claimType" : "recommendation",
+      "description" : "Recommendations are not verifiable",
+      "evidence" : [
+        {
+          "id" : "order-1",
+          "source" : "Scheduling Order",
+          "sourceType" : "courtRecord",
+          "text" : "The court denied the request for an extension."
+        }
+      ],
+      "expectedStatus" : "notVerifiable"
+    },
+    {
+      "claimText" : "A response must be filed within 14 days after service of the motion.",
+      "claimType" : "legalRule",
+      "description" : "A legal rule cannot rest on a court record (source authority)",
+      "evidence" : [
+        {
+          "id" : "order-1",
+          "source" : "Scheduling Order",
+          "sourceType" : "courtRecord",
+          "text" : "A response must be filed within 14 days after service of the motion."
+        }
+      ],
+      "expectedStatus" : "unsupported"
+    },
+    {
+      "claimText" : "The city approved the zoning variance.",
+      "claimType" : "factual",
+      "description" : "A speculative passage cannot prove an occurrence",
+      "evidence" : [
+        {
+          "id" : "minutes-3",
+          "source" : "Council Minutes",
+          "sourceType" : "evidence",
+          "text" : "The city is considering a proposed zoning variance."
+        }
+      ],
+      "expectedStatus" : "unsupported"
+    },
+    {
+      "claimText" : "The response deadline is 14 days.",
+      "claimType" : "factual",
+      "description" : "Conflicting structured values are contradicted",
+      "evidence" : [
+        {
+          "id" : "rule-6",
+          "source" : "Local Rule 6",
+          "sourceType" : "unknown",
+          "text" : "The response deadline is 30 days."
+        }
+      ],
+      "expectedStatus" : "contradicted"
+    }
+  ],
+  "description" : "Baseline lexical verifier verdicts under the default policy.",
+  "specVersion" : "1.0"
+}

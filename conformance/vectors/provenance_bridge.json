@@ -1,0 +1,118 @@
+{
+  "createdAtEpochSeconds" : 1760000000,
+  "description" : "End-to-end lock of the DProvenanceKit interchange: event vocabulary, canonical payload bytes (Trace Specification v1 §2), run fingerprint (§5), and lineage edges.",
+  "document" : "The court denied the request for an extension. The tenant paid rent on March 1. The court granted the motion for sanctions. The mediator scheduled a conference.",
+  "edges" : [
+    {
+      "sourceSequence" : 0,
+      "targetSequence" : 1,
+      "type" : "verifiedBy"
+    },
+    {
+      "sourceSequence" : 2,
+      "targetSequence" : 3,
+      "type" : "verifiedBy"
+    },
+    {
+      "sourceSequence" : 4,
+      "targetSequence" : 5,
+      "type" : "verifiedBy"
+    },
+    {
+      "sourceSequence" : 6,
+      "targetSequence" : 7,
+      "type" : "verifiedBy"
+    },
+    {
+      "sourceSequence" : 1,
+      "targetSequence" : 8,
+      "type" : "derivedFrom"
+    },
+    {
+      "sourceSequence" : 3,
+      "targetSequence" : 8,
+      "type" : "derivedFrom"
+    },
+    {
+      "sourceSequence" : 5,
+      "targetSequence" : 8,
+      "type" : "derivedFrom"
+    },
+    {
+      "sourceSequence" : 7,
+      "targetSequence" : 8,
+      "type" : "derivedFrom"
+    }
+  ],
+  "events" : [
+    {
+      "priorityValue" : 2,
+      "rawJSON" : "{\"claimID\":\"claim-0-0\",\"claimType\":\"factual\",\"fingerprint\":\"5d9439c35f5b1eeb\",\"text\":\"The court denied the request for an extension.\"}",
+      "typeIdentifier" : "cpk_claim_extracted"
+    },
+    {
+      "priorityValue" : 3,
+      "rawJSON" : "{\"claimFingerprint\":\"5d9439c35f5b1eeb\",\"confidence\":1,\"evidenceFingerprints\":[\"2e68a13fb1abff5c3428dc8e1702a39630a25bbb27adef8774cb16eb29455a0b\"],\"status\":\"directlySupported\"}",
+      "typeIdentifier" : "cpk_claim_verified"
+    },
+    {
+      "priorityValue" : 2,
+      "rawJSON" : "{\"claimID\":\"claim-46-0\",\"claimType\":\"factual\",\"fingerprint\":\"69e49e925cb77800\",\"text\":\"The tenant paid rent on March 1.\"}",
+      "typeIdentifier" : "cpk_claim_extracted"
+    },
+    {
+      "priorityValue" : 3,
+      "rawJSON" : "{\"claimFingerprint\":\"69e49e925cb77800\",\"confidence\":1,\"evidenceFingerprints\":[\"81d68c5dff701499eca0709b6678be909e5979497e0831a8b56762c36003194c\"],\"status\":\"directlySupported\"}",
+      "typeIdentifier" : "cpk_claim_verified"
+    },
+    {
+      "priorityValue" : 2,
+      "rawJSON" : "{\"claimID\":\"claim-79-0\",\"claimType\":\"factual\",\"fingerprint\":\"31193b803adc5a64\",\"text\":\"The court granted the motion for sanctions.\"}",
+      "typeIdentifier" : "cpk_claim_extracted"
+    },
+    {
+      "priorityValue" : 3,
+      "rawJSON" : "{\"claimFingerprint\":\"31193b803adc5a64\",\"confidence\":0.75,\"evidenceFingerprints\":[\"2e68a13fb1abff5c3428dc8e1702a39630a25bbb27adef8774cb16eb29455a0b\"],\"status\":\"unsupported\"}",
+      "typeIdentifier" : "cpk_claim_verified"
+    },
+    {
+      "priorityValue" : 2,
+      "rawJSON" : "{\"claimID\":\"claim-123-0\",\"claimType\":\"factual\",\"fingerprint\":\"3ae263215eb0133d\",\"text\":\"The mediator scheduled a conference.\"}",
+      "typeIdentifier" : "cpk_claim_extracted"
+    },
+    {
+      "priorityValue" : 3,
+      "rawJSON" : "{\"claimFingerprint\":\"3ae263215eb0133d\",\"confidence\":0.6666666666666666,\"evidenceFingerprints\":[\"8f0759e66fc5fe3fe05599b7c017fd86b4bc57c0a48b28879394d76b097d1d15\"],\"status\":\"partiallySupported\"}",
+      "typeIdentifier" : "cpk_claim_verified"
+    },
+    {
+      "priorityValue" : 3,
+      "rawJSON" : "{\"policyFingerprint\":\"2f7f3374f9569df303c94cf3a050898e3608269a2e8c8d3aa00d56161642f3e0\",\"reportFingerprint\":\"88084406da17ab7b21b4713462dbfdcbe48c1f40cfa00d17a402e7881924cc53\",\"safeToPublish\":false,\"specVersion\":\"1.0\",\"statusCounts\":{\"directlySupported\":2,\"partiallySupported\":1,\"unsupported\":1}}",
+      "typeIdentifier" : "cpk_report_finalized"
+    }
+  ],
+  "evidence" : [
+    {
+      "id" : "order-1",
+      "source" : "Scheduling Order",
+      "sourceType" : "courtRecord",
+      "text" : "The court denied the request for an extension."
+    },
+    {
+      "id" : "ledger-1",
+      "source" : "Rent Ledger",
+      "sourceType" : "evidence",
+      "text" : "The tenant paid rent on March 1."
+    },
+    {
+      "id" : "conf-1",
+      "source" : "Case Notes",
+      "sourceType" : "evidence",
+      "text" : "The mediator canceled the conference."
+    }
+  ],
+  "policyFingerprint" : "2f7f3374f9569df303c94cf3a050898e3608269a2e8c8d3aa00d56161642f3e0",
+  "reportFingerprint" : "88084406da17ab7b21b4713462dbfdcbe48c1f40cfa00d17a402e7881924cc53",
+  "runFingerprint" : "ec18108308e73e6b5591f1810989075ee97d25f5",
+  "specVersion" : "1.0"
+}
