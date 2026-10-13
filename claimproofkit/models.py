@@ -115,12 +115,12 @@ class ProofReport:
 
     @property
     def is_safe_to_publish(self) -> bool:
-        return all(v.status in APPROVED_STATUSES for v in self.verdicts)
+        return bool(self.verdicts) and all(v.status in APPROVED_STATUSES for v in self.verdicts)
 
     @property
     def support_rate(self) -> float:
         if not self.verdicts:
-            return 1.0
+            return 0.0
         supported = sum(1 for v in self.verdicts if v.status in APPROVED_STATUSES)
         return supported / len(self.verdicts)
 
