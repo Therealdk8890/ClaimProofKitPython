@@ -19,6 +19,8 @@ python conformance/run_conformance.py
 
 ## Verify a document
 
+A document with no extractable material claims is **not** considered safe to publish. A successful verification gate requires at least one claim, and every extracted claim must have an approved verdict. This avoids treating an empty or unrecognized document as verified by vacuous success.
+
 ```python
 from claimproofkit import ClaimVerifier, EvidencePassage, SourceType
 
@@ -36,13 +38,13 @@ report = ClaimVerifier().verify_document(
 assert report.is_safe_to_publish
 ```
 
-Or from the CLI, with the same commands and exit codes as the Swift binary
+Or from the CLI, with the same command semantics and exit codes as the Swift binary
 (0 published, 2 blocked, 3 benchmark gate failed, 64 usage, 65 unreadable
 input, 73 trace write failed):
 
 ```sh
-claimproof verify input.json [--provenance trace.json]
-claimproof benchmark corpus.json [--json]
+claimproofkit verify input.json [--provenance trace.json]
+claimproofkit benchmark corpus.json [--json]
 ```
 
 ## Working with DProvenanceKit
