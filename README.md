@@ -75,8 +75,6 @@ Spec changes originate in the Swift repo (`Docs/PROOF_SPEC_V1.md`): bump the
 spec/verifier version there, regenerate vectors, then re-sync here with
 `conformance/sync-vectors.sh` and update this implementation to conform.
 
-ClaimProofKitPython is source-available under the [Business Source License
-1.1](LICENSE). Non-production evaluation, development, testing, and personal
-study are permitted. Production use requires a separate commercial license
-until the Change Date, when that version converts to Apache 2.0. See
-[Commercial licensing](COMMERCIAL_LICENSING.md).
+ClaimProofKitPython is licensed under the [Apache License, Version 2.0](LICENSE).
+Commercial use is permitted subject to that license. See
+[Licensing and commercial use](COMMERCIAL_LICENSING.md).
