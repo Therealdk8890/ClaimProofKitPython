@@ -36,7 +36,7 @@ Homepage = "https://github.com/Therealdk8890/ClaimProofKitPython"
 Reference-Implementation = "https://github.com/Therealdk8890/ClaimProofKit"
 
 [project.scripts]
-claimproof = "claimproofkit.cli:main"
+claimproofkit = "claimproofkit.cli:main"
 
 [tool.setuptools]
 packages = ["claimproofkit"]
