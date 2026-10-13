@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copyright 2026 Daniel Kissel
-# SPDX-License-Identifier: BUSL-1.1
+# SPDX-License-Identifier: Apache-2.0
 #
 # Re-sync the Claim Proof Specification v1 vectors from the canonical Swift repo,
 # then show what changed. The Swift ClaimProofKit is the source of truth (the
