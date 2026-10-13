@@ -22,7 +22,7 @@ if ! grep -Fq 'licensed under the [Apache License, Version 2.0]' README.md; then
     exit 1
 fi
 
-if git grep -nE 'BUSL-1\.1|Business Source License 1\.1|source-available under the Business Source License' -- ':!LICENSE' ':!COMMERCIAL_LICENSING.md'; then
+if git grep -nE 'BUSL-1\.1|Business Source License 1\.1|source-available under the Business Source License' -- ':!LICENSE' ':!COMMERCIAL_LICENSING.md' ':!scripts/check-license-surface.sh'; then
     printf 'license surface check failed: stale BUSL licensing wording found\n' >&2
     exit 1
 fi
