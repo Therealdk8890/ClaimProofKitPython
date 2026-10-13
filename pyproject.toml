@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Evidence-bound claim verification — block generated documents whose material claims the supplied evidence does not support. Python implementation of Claim Proof Specification v1, in locked parity with the Swift ClaimProofKit."
 readme = "README.md"
 requires-python = ">=3.9"
-license = "BUSL-1.1"
+license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
 authors = [{ name = "ClaimProofKit" }]
 keywords = ["verification", "claims", "evidence", "hallucination", "provenance", "legal"]
