@@ -81,3 +81,17 @@ def test_mixed_document_blocks_publication():
     statuses = [v.status for v in report.verdicts]
     assert SupportStatus.DIRECTLY_SUPPORTED in statuses
     assert SupportStatus.UNSUPPORTED in statuses
+
+
+def test_empty_document_is_not_safe_to_publish():
+    report = ClaimVerifier().verify_document("", EVIDENCE)
+    assert report.verdicts == ()
+    assert not report.is_safe_to_publish
+    assert report.support_rate == 0.0
+
+
+def test_document_without_extractable_claims_is_not_safe_to_publish():
+    report = ClaimVerifier().verify_document("?", EVIDENCE)
+    assert report.verdicts == ()
+    assert not report.is_safe_to_publish
+    assert report.support_rate == 0.0
