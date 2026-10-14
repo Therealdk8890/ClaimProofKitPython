@@ -1,5 +1,5 @@
 # Copyright 2026 Daniel Kissel
-# SPDX-License-Identifier: BUSL-1.1
+# SPDX-License-Identifier: Apache-2.0
 
 """Human-readable and machine-readable report rendering — mirrors the Swift
 `ReportRenderer.swift` and `BenchmarkReportRenderer.swift`, plus the Swift

@@ -1,5 +1,5 @@
 # Copyright 2026 Daniel Kissel
-# SPDX-License-Identifier: BUSL-1.1
+# SPDX-License-Identifier: Apache-2.0
 
 """Regression tests for parity divergences found by differential review.
 

@@ -1,7 +1,7 @@
 # Copyright 2026 Daniel Kissel
-# SPDX-License-Identifier: BUSL-1.1
+# SPDX-License-Identifier: Apache-2.0
 
-"""``claimproof`` CLI — mirrors the Swift executable's commands and exit codes.
+"""``claimproofkit`` CLI — mirrors the Swift executable's commands and exit codes.
 
 Exit codes: 0 published / gate passed, 2 blocked, 3 benchmark gate failed,
 64 usage, 65 unreadable input, 73 provenance trace write failed.
@@ -21,8 +21,8 @@ from .report import benchmark_report_json, render_benchmark_markdown, render_rep
 from .verifier import ClaimVerifier
 
 USAGE = """Usage:
-  claimproof verify <input.json> [--provenance <trace.json>]
-  claimproof benchmark <corpus.json> [--json]
+  claimproofkit verify <input.json> [--provenance <trace.json>]
+  claimproofkit benchmark <corpus.json> [--json]
 
 --provenance writes a DProvenanceKit-compatible trace manifest of the
 verification run alongside the report.
@@ -30,7 +30,7 @@ verification run alongside the report.
 Exit codes: 0 published, 2 blocked, 3 benchmark gate failed,
 64 usage, 65 unreadable input, 73 provenance trace write failed.
 
-Backward compatibility: claimproof <input.json> runs verification.
+Backward compatibility: claimproofkit <input.json> runs verification.
 """
 
 
@@ -55,7 +55,7 @@ def _run_verification(path: str, provenance_path: Optional[str]) -> int:
         policy = VerificationPolicy()
         report = ClaimVerifier(policy).verify_document(data["document"], evidence, created_at=time.time())
     except Exception as error:  # noqa: BLE001 - CLI boundary
-        sys.stderr.write(f"claimproof: {error}\n")
+        sys.stderr.write(f"claimproofkit: {error}\n")
         return 65
 
     # The report is always emitted, even if the trace write fails afterwards.
@@ -69,7 +69,7 @@ def _run_verification(path: str, provenance_path: Optional[str]) -> int:
                 f"provenance trace written to {provenance_path} (run fingerprint {trace.run_fingerprint})\n"
             )
         except Exception as error:  # noqa: BLE001 - CLI boundary
-            sys.stderr.write(f"claimproof: failed to write provenance trace to {provenance_path}: {error}\n")
+            sys.stderr.write(f"claimproofkit: failed to write provenance trace to {provenance_path}: {error}\n")
             return 73
     return 0 if report.is_safe_to_publish else 2
 
@@ -79,7 +79,7 @@ def _run_benchmark(path: str, as_json: bool) -> int:
         with open(path, encoding="utf-8") as handle:
             corpus = BenchmarkCorpus.from_dict(json.load(handle))
     except Exception as error:  # noqa: BLE001 - CLI boundary
-        sys.stderr.write(f"claimproof: {error}\n")
+        sys.stderr.write(f"claimproofkit: {error}\n")
         return 65
     report = BenchmarkRunner().run(corpus)
     print(benchmark_report_json(report) if as_json else render_benchmark_markdown(report))

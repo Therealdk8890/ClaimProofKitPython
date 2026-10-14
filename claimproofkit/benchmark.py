@@ -1,5 +1,5 @@
 # Copyright 2026 Daniel Kissel
-# SPDX-License-Identifier: BUSL-1.1
+# SPDX-License-Identifier: Apache-2.0
 
 """Versioned benchmark harness — mirrors the Swift `BenchmarkModels.swift` /
 `BenchmarkRunner.swift`, including the safety-gate semantics: a corpus with no
