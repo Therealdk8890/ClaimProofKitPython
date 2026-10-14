@@ -8,7 +8,7 @@ The Swift [ClaimProofKit](https://github.com/Therealdk8890/ClaimProofKit) is the
 
 ## License
 
-ClaimProofKit is distributed under the [Apache License, Version 2.0](LICENSE). You may use, modify, distribute, and include it in commercial products subject to the license terms. **No separate production-use license is required.** See [NOTICE](NOTICE) and [Licensing and commercial use](COMMERCIAL_LICENSING.md).
+ClaimProofKit is licensed under the [Apache License, Version 2.0](LICENSE). You may use, modify, distribute, and include it in commercial products subject to the license terms. **No separate production-use license is required.** See [NOTICE](NOTICE) and [Licensing and commercial use](COMMERCIAL_LICENSING.md).
 
 The Apache-2.0 license applies to the code in this repository; it does not grant rights to project trademarks or imply endorsement.
 
