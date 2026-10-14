@@ -1,15 +1,18 @@
-# ClaimProofKitPython
+# ClaimProofKit — Python implementation
 
-Python implementation of **Claim Proof Specification v1** — evidence-bound
-claim verification that blocks generated documents whose material claims the
-supplied evidence does not support. Pure standard library, zero dependencies.
+**Apache-2.0 licensed** · Evidence-bound claim verification · Zero runtime dependencies
 
-The Swift [ClaimProofKit](https://github.com/Therealdk8890/ClaimProofKit) is the reference
-implementation; this package is held in **locked parity** with it by the
-golden vectors under `conformance/vectors` (vendored from the Swift repo's
-ConformanceHarness). Every fingerprint, verifier verdict, and canonical
-payload byte is identical across both implementations — CI fails on any
-drift, in either repo.
+ClaimProofKit implements **Claim Proof Specification v1**: it checks whether the material claims in a generated document are supported by supplied evidence, and blocks publication when claims are unsupported or when no material claims can be extracted. It uses only the Python standard library at runtime.
+
+The Swift [ClaimProofKit](https://github.com/Therealdk8890/ClaimProofKit) is the reference implementation. This Python implementation is held in **locked parity** with it through the golden vectors under `conformance/vectors`. Fingerprints, verifier verdicts, and canonical payload bytes are checked across both implementations.
+
+## License
+
+ClaimProofKit is distributed under the [Apache License, Version 2.0](LICENSE). You may use, modify, distribute, and include it in commercial products subject to the license terms. **No separate production-use license is required.** See [NOTICE](NOTICE) and [Licensing and commercial use](COMMERCIAL_LICENSING.md).
+
+The Apache-2.0 license applies to the code in this repository; it does not grant rights to project trademarks or imply endorsement.
+
+## Install and test
 
 ```sh
 pip install -e ".[dev]"
@@ -38,9 +41,7 @@ report = ClaimVerifier().verify_document(
 assert report.is_safe_to_publish
 ```
 
-Or from the CLI, with the same command semantics and exit codes as the Swift binary
-(0 published, 2 blocked, 3 benchmark gate failed, 64 usage, 65 unreadable
-input, 73 trace write failed):
+The CLI exposes the same command semantics and exit codes as the Swift binary (0 published, 2 blocked, 3 benchmark gate failed, 64 usage, 65 unreadable input, 73 trace write failed):
 
 ```sh
 claimproofkit verify input.json [--provenance trace.json]
@@ -49,10 +50,7 @@ claimproofkit benchmark corpus.json [--json]
 
 ## Working with DProvenanceKit
 
-`claimproofkit.provenance` exports a verification run as a
-DProvenanceKit-compatible trace, identical to the Swift bridge's output:
-stable `cpk_*` event vocabulary, canonical payload bytes (Trace Specification
-v1 §2), lineage edges, and the §5 run fingerprint.
+`claimproofkit.provenance` exports a verification run as a DProvenanceKit-compatible trace, identical to the Swift bridge's output: stable `cpk_*` event vocabulary, canonical payload bytes (Trace Specification v1 §2), lineage edges, and the §5 run fingerprint.
 
 ```python
 from claimproofkit import ProvenanceExporter, VerificationPolicy
@@ -62,19 +60,8 @@ trace.events_json()    # decodes as [TraceEvent<AnyTraceableEvent>] in Swift DPr
 trace.manifest_json()  # full manifest with fingerprints and edges
 ```
 
-The conformance runner proves the fingerprint against the real Python
-[`dprovenancekit`](https://github.com/Therealdk8890/DProvenanceKitPython)
-package when it is importable: recording the trace through its SQLite store
-reproduces the bridge's run fingerprint byte-for-byte. The same trace
-fingerprints identically in Swift ClaimProofKit, Swift DProvenanceKit, and
-Python dprovenancekit.
+The conformance runner proves the fingerprint against the real Python [dprovenancekit](https://github.com/Therealdk8890/DProvenanceKitPython) package when it is importable: recording the trace through its SQLite store reproduces the bridge's run fingerprint byte-for-byte. The same trace fingerprints identically in Swift ClaimProofKit, Swift DProvenanceKit, and Python dprovenancekit.
 
 ## Changing locked behavior
 
-Spec changes originate in the Swift repo (`Docs/PROOF_SPEC_V1.md`): bump the
-spec/verifier version there, regenerate vectors, then re-sync here with
-`conformance/sync-vectors.sh` and update this implementation to conform.
-
-ClaimProofKitPython is licensed under the [Apache License, Version 2.0](LICENSE).
-Commercial use is permitted subject to that license. See
-[Licensing and commercial use](COMMERCIAL_LICENSING.md).
+Specification changes originate in the Swift repo ([`Docs/PROOF_SPEC_V1.md`](https://github.com/Therealdk8890/ClaimProofKit/blob/main/Docs/PROOF_SPEC_V1.md)): bump the spec/verifier version there, regenerate vectors, then re-sync here with `conformance/sync-vectors.sh` and update this implementation to conform.
