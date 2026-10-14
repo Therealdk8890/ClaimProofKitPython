@@ -62,7 +62,9 @@ jobs:
               metadata_name = next(n for n in names if n.endswith(".dist-info/METADATA"))
               metadata = archive.read(metadata_name).decode()
               assert "Name: claimproofkit" in metadata
-              assert "Version: 0.1.0" in metadata
+              import tomllib
+              expected_version = tomllib.loads(Path("pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
+              assert f"Version: {expected_version}" in metadata
               assert "License-Expression: Apache-2.0" in metadata or "License: Apache-2.0" in metadata
               assert any(n.endswith(".dist-info/licenses/LICENSE") for n in names), "wheel missing LICENSE"
               assert any(n.endswith(".dist-info/licenses/NOTICE") for n in names), "wheel missing NOTICE"
@@ -83,9 +85,12 @@ jobs:
           /tmp/claimproofkit-wheel-test/bin/claimproofkit --help
           /tmp/claimproofkit-wheel-test/bin/python - <<'PY'
           from importlib.metadata import metadata, version
+          from pathlib import Path
+          import tomllib
           import claimproofkit
 
-          assert version("claimproofkit") == "0.1.0"
+          expected_version = tomllib.loads(Path("pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
+          assert version("claimproofkit") == expected_version
           package_metadata = metadata("claimproofkit")
           license_value = package_metadata.get("License-Expression") or package_metadata.get("License")
           assert license_value == "Apache-2.0", f"unexpected license metadata: {license_value!r}"
