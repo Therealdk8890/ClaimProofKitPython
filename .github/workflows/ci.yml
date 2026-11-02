@@ -12,7 +12,7 @@ jobs:
   validate:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-14]
+        os: [ubuntu-24.04, macos-14]
         python: ["3.9", "3.13"]
     runs-on: ${{ matrix.os }}
     steps:
